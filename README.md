@@ -29,8 +29,9 @@ Start app:
 ```bash
 $ npm start
 ````
-
+  
 Open your favorite browser to [http://localhost:3000](http://localhost:3000)
+
 
 ## Features
 
@@ -39,6 +40,7 @@ Open your favorite browser to [http://localhost:3000](http://localhost:3000)
 
 Extras
 - Trending: charts with posts and comments statistics.
+
 
 
 ## Components Glossary 
