@@ -1,0 +1,160 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  color: #252525;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: #252525;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 10px;
+  position: relative;
+  min-height: 0px;
+}
+
+.box-categories {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  right: 5px;
+
+}
+
+.b1 {
+  display: inline-block;
+  position: relative;
+  margin: 5px;
+  float: left;
+  width: calc(33% - 10px);
+  min-height: 300px;
+  margin-top: 12px;
+}
+
+.b2,
+.b3,
+.b4 {
+  display: inline-block;
+  position: relative;
+  margin: 5px;
+  float: left;
+  width: calc(33% - 10px);
+  min-height: 10px;
+  margin-top: 12px;
+}
+
+.box-trending-stats {
+
+  height: 100px;
+  width: 100px;
+  position: relative;
+}
+
+.box-posts {
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+  right: 5px;
+}
+
+.b1-trends {
+  display: inline-block;
+  position: relative;
+  margin: 5px;
+  float: left;
+  width: calc(17% - 10px);
+  min-height: 360px;
+  margin-top: 12px;
+}
+
+.b2-trends {
+  display: inline-block;
+  position: relative;
+  margin: 5px;
+  float: left;
+  width: calc(66% - 10px);
+  min-height: 300px;
+  background-color: rgb(231, 245, 253);
+  margin-top: 12px;
+  padding: 5px;
+  border-color: rgb(205, 216, 223);
+  border-style: solid;
+  border-width: 1px;
+}
+
+.btn {
+  text-transform: uppercase;
+  margin: 35px auto;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, .29);
+  cursor: pointer;
+  background: #fff;
+  font-size: 16px;
+  width: 250px;
+  position: relative;
+}
+
+.btn:hover {
+  border-color: rgba(0, 0, 0, .5);
+  text-decoration: none;
+}
+
+.btn:focus {
+  outline: 0;
+  font-weight: 700;
+  border-width: 2px;
+}
+
+.center {
+  text-align: center;
+}
+
+.active {
+  font-weight: bold;
+}
+
+.nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-decoration: none;
+}
+
+.nav li:first-child {
+  padding-left: 0;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.avatar {
+  height: 50px;
+  border-radius: 25px;
+  margin: 10px;
+}
+
+.heart-button {
+  background: transparent;
+  border: none;
+}
+
+.textarea {
+  border-radius: 4px;
+  border: 1px solid #dad7d7;
+  padding: 10px;
+  font-size: 15px;
+  height: 100px;
+}

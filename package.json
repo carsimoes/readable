@@ -1,0 +1,35 @@
+{
+  "name": "readable",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^3.9.2",
+    "@material-ui/icons": "^3.0.2",
+    "@material-ui/styles": "^3.0.0-alpha.10",
+    "notistack": "^0.5.0",
+    "react": "^16.2.0",
+    "react-chartkick": "^0.3.0",
+    "react-charts": "^2.0.0-alpha.12",
+    "react-dom": "^16.2.0",
+    "react-google-charts": "^3.0.11",
+    "react-icons": "^2.2.7",
+    "react-redux": "^6.0.0",
+    "react-redux-loading": "^1.0.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.1",
+    "redux": "^4.0.1",
+    "redux-form": "^8.1.0",
+    "redux-thunk": "^2.3.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/udacity/readable-new.git"
+  }
+}

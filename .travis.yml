@@ -1,0 +1,33 @@
+language: node_js
+node_js:
+  - "stable"
+
+branches:
+  only:
+  - master
+
+cache:
+  directories:
+  - node_modules
+
+before_install:
+- npm update
+
+install:
+ # - npm install -g codecov
+ - npm install
+
+script:
+  # - istanbul cover ./node_modules/mocha/bin/_mocha --reporter lcovonly -- -R spec
+  # - codecov
+  # - npm test
+  # - npm run build
+  - npm run build
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $github_token
+  local_dir: build
+  on:
+    branch: master
