@@ -151,7 +151,11 @@ class PostDetail extends Component {
         const { classes } = this.props;
 
         return (
-            <div>
+            <div style={{
+                position: 'fixed',
+                height: '80%',
+                overflow: 'auto'
+            }}>
 
                 {/* <FormControl className={classes.formControl}> */}
 
