@@ -16,8 +16,19 @@ You can reach me at carlos.renato.simoes@gmail.com or on Linkedin in www.linkedi
 
 ```bash
 $ npm install
-$ npm start
 ```
+
+Start node server in back-end folder:
+
+```bash
+$ node server
+````
+
+Start appr:
+
+```bash
+$ npm start
+````
 
 Open your favorite browser to [http://localhost:3000](http://localhost:3000)
 
