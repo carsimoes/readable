@@ -90,7 +90,7 @@ class CreatePost extends Component {
 
 
             <div style={{ width: '100%', height: '100%', float: 'left', position: 'fixed', background: 'white' }}>
-                <div style={{ width: '15%', float: 'left', marginLeft: 620, position: 'fixed' }}>
+                <div style={{ width: '15%', float: 'left', marginLeft: 500, position: 'fixed' }}>
                     <FormControl className={classes.formControl}>
                         <Typography variant="h6" gutterBottom>Compose new Post</Typography>
                         <form onSubmit={this.handleSubmit} className={classes.root}>
@@ -103,7 +103,7 @@ class CreatePost extends Component {
                                 onChange={this.handleInputChange}
                                 margin="normal"
                                 variant="outlined"
-                                required='required'
+                                required
                             />
                             <TextField
                                 id='post-author'
@@ -114,7 +114,7 @@ class CreatePost extends Component {
                                 onChange={this.handleInputChange}
                                 margin="normal"
                                 variant="outlined"
-                                required='required'
+                                required
                             />
                             <div className={classes.selectAlign}>
                                 <InputLabel htmlFor="post-category"></InputLabel>
@@ -123,7 +123,7 @@ class CreatePost extends Component {
                                     id='post-category'
                                     value={this.state.postCategory}
                                     onChange={this.handleInputChange}
-                                    required='required'>
+                                    required>
                                     <MenuItem value='react'>React</MenuItem>
                                     <MenuItem value='redux'>Redux</MenuItem>
                                     <MenuItem value='udacity'>Udacity</MenuItem>
@@ -140,7 +140,7 @@ class CreatePost extends Component {
                                 onChange={this.handleInputChange}
                                 margin="normal"
                                 variant="outlined"
-                                required='required'
+                                required
                             />
                             <br />
                             <div className={classes.selectAlign}>

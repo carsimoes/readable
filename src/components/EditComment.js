@@ -113,35 +113,29 @@ class EditComment extends Component {
                                 <br />
                                 <br />
                                 <br />
-
                             </Typography>
                             <CardActions>
-                                <IconButton aria-label="Edit">
-                                    <span className='' onClick={this.beginEdit}>
-                                        <Edit />
-                                    </span>
+                                <IconButton aria-label="Edit" onClick={this.beginEdit}>
+                                    <Edit />
                                 </IconButton>
-
-                                <IconButton aria-label="Delete">
-                                    <div onClick={() => this.handleDelete(this.props.id)}>
+                                <div onClick={() => this.handleDelete(this.props.id)}>
+                                    <IconButton aria-label="Delete">
                                         <Delete />
-                                    </div>
-                                </IconButton>
+                                    </IconButton>
+                                </div>
                                 <div>
                                     {this.props.voteScore}{' '}
 
-                                    <IconButton aria-label="Love this">
-                                        <div onClick={() => this.submitVote(this.props.id, 'upVote')}>
+                                    <IconButton aria-label="Love this" onClick={() => this.submitVote(this.props.id, 'upVote')}>
+                                        <div >
                                             <LikeIcon />
                                         </div>
                                     </IconButton>
-
-                                    <IconButton aria-label="Love this">
-                                        <div onClick={() => this.submitVote(this.props.id, 'downVote')}>
+                                    <IconButton aria-label="Love this" onClick={() => this.submitVote(this.props.id, 'downVote')}>
+                                        <div >
                                             <UnlikeIcon />
                                         </div>
                                     </IconButton>
-
                                 </div>
 
                             </CardActions>

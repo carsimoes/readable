@@ -77,8 +77,6 @@ class PostDetail extends Component {
                     this.props.location.state.postEditorVisible &&
                     this.showPostEditor()
             )
-
-        debugger
     }
 
     showPostEditor() {
@@ -90,7 +88,6 @@ class PostDetail extends Component {
             postEditorVisible: true,
             postId: this.props.match.params.post_id
         })
-        debugger
     }
 
     submitVote = (id, voteType) => {
@@ -154,10 +151,9 @@ class PostDetail extends Component {
             <div style={{
                 position: 'fixed',
                 height: '80%',
+                width: '100%',
                 overflow: 'auto'
             }}>
-
-                {/* <FormControl className={classes.formControl}> */}
 
                 {this.props.post &&
                     Object.keys(this.props.post).map(
@@ -208,7 +204,7 @@ class PostDetail extends Component {
                                                 onChange={this.handleInputChange}
                                                 margin="normal"
                                                 variant="outlined"
-                                                required='required'
+                                                required
                                             />
 
                                             <TextField
@@ -220,7 +216,7 @@ class PostDetail extends Component {
                                                 onChange={this.handleInputChange}
                                                 margin="normal"
                                                 variant="outlined"
-                                                required='required'
+                                                required
                                             />
 
                                             <TextField
@@ -234,7 +230,7 @@ class PostDetail extends Component {
                                                 onChange={this.handleInputChange}
                                                 margin="normal"
                                                 variant="outlined"
-                                                required='required'
+                                                required
                                             />
                                             <br />
                                             <div className={classes.selectAlign}>
@@ -296,7 +292,7 @@ class PostDetail extends Component {
                                                 onChange={this.handleInputChange}
                                                 margin="normal"
                                                 variant="outlined"
-                                                required='required'
+                                                required
                                             />
                                             <TextField
                                                 id='comment-content'
@@ -307,7 +303,7 @@ class PostDetail extends Component {
                                                 onChange={this.handleInputChange}
                                                 margin="normal"
                                                 variant="outlined"
-                                                required='required'
+                                                required
                                             />
 
                                             <div className={classes.selectAlign}>
@@ -322,7 +318,7 @@ class PostDetail extends Component {
                             </div>
                     )
                 }
-                {/* </ FormControl> */}
+
             </div >
         )
     }
