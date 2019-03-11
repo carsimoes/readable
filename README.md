@@ -24,7 +24,7 @@ Start node server in back-end folder:
 $ node server
 ````
 
-Start appr:
+Start app:
 
 ```bash
 $ npm start
