@@ -40,7 +40,7 @@ Open your favorite browser to [http://localhost:3000](http://localhost:3000)
 
 Extras
 - Trending: charts with posts and comments statistics.
-- Material desing
+- Material design
 - Trending: React Google Charts
 
 
