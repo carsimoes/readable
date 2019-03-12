@@ -18,7 +18,7 @@ You can reach me at carlos.renato.simoes@gmail.com or on Linkedin in www.linkedi
 $ npm install
 ```
 
-Start node server in back-end folder:
+Start node server in back-end folder (readable/src/utils/back-end/):
 
 ```bash
 $ node server
@@ -40,7 +40,8 @@ Open your favorite browser to [http://localhost:3000](http://localhost:3000)
 
 Extras
 - Trending: charts with posts and comments statistics.
-
+- Material design
+- Trending: React Google Charts
 
 
 ## Components Glossary 
