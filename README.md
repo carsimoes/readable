@@ -18,7 +18,7 @@ You can reach me at carlos.renato.simoes@gmail.com or on Linkedin in www.linkedi
 $ npm install
 ```
 
-Start node server in back-end folder:
+Start node server in back-end folder (readable/src/utils/back-end/):
 
 ```bash
 $ node server
