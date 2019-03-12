@@ -21,8 +21,13 @@ import Typography from '@material-ui/core/Typography';
 import UnlikeIcon from '@material-ui/icons/ThumbDown'
 import LikeIcon from '@material-ui/icons/ThumbUp'
 import Delete from '@material-ui/icons/Delete'
+import Edit from '@material-ui/icons/Edit'
 import Badge from '@material-ui/core/Badge';
 import MessageIcon from '@material-ui/icons/Message';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Button from '@material-ui/core/Button';
 
 //Components
 import NavCategories from '../components/NavCategories'
@@ -85,6 +90,11 @@ The view can subscribe to those events and update itself accordingly.
 
 class Home extends Component {
 
+    state = {
+        openDialogConfirmDelete: false,
+        postIdToDelete: ''
+    }
+
     componentWillMount() {
         this.props.fetchData('BY_SCORE_HIGHEST')
     }
@@ -96,6 +106,19 @@ class Home extends Component {
     deletePost = id => {
         this.props.dispatch(deletePost(id))
     }
+
+    handleClickOpenConfirmation = (id) => {
+        this.setState({ openDialogConfirmDelete: true });
+        this.setState({ postIdToDelete: id });
+    };
+
+    handleCloseConfirmationDelete = (e) => {
+        if (e.target.textContent === "Yes") {
+            this.deletePost(this.state.postIdToDelete)
+        }
+
+        this.setState({ openDialogConfirmDelete: false });
+    };
 
     render() {
         const { classes } = this.props;
@@ -136,7 +159,7 @@ class Home extends Component {
                                         <CardHeader
                                             avatar={
                                                 <Avatar aria-label="Recipe" className={classes.avatar}>
-                                                    {post.category.charAt(0).toUpperCase() + post.category.charAt(1)}
+                                                    {post.category && post.category.charAt(0).toUpperCase() + post.category.charAt(1)}
                                                 </Avatar>
                                             }
                                             action={
@@ -173,16 +196,25 @@ class Home extends Component {
                                                     pathname: `/${post.category}/${post.id}`,
                                                     state: { postEditorVisible: true }
                                                 }}
-                                                style={{ marginLeft: 25 }}
-                                            >
+                                                style={{ marginLeft: 25 }}>
                                                 <Badge color="primary" badgeContent={post.comments && post.comments.length} className={classes.margin}>
                                                     <MessageIcon />
                                                 </Badge>
                                             </Link>
 
-                                            <div onClick={() => this.deletePost(post.id)}
-                                                style={{ marginLeft: 25 }}
-                                            >
+                                            <Link
+                                                to={{
+                                                    pathname: `/${post.category}/${post.id}`,
+                                                    state: { postEditorVisible: true }
+                                                }}
+                                                style={{ marginLeft: 25 }}>
+                                                <IconButton aria-label="Edit">
+                                                    <Edit />
+                                                </IconButton>
+                                            </Link>
+
+                                            <div onClick={() => this.handleClickOpenConfirmation(post.id)}
+                                                style={{ marginLeft: 0 }}>
                                                 <IconButton aria-label="Delete">
                                                     <Delete />
                                                 </IconButton>
@@ -196,6 +228,21 @@ class Home extends Component {
                 <div className="b3">
                     <NavCategories sortBy={this.props.sortBy} />
                 </div>
+
+                <Dialog
+                    open={this.state.openDialogConfirmDelete}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description">
+                    <DialogTitle id="alert-dialog-title">{"Delete this post?"}</DialogTitle>
+                    <DialogActions>
+                        <Button id="delete-no" onClick={this.handleCloseConfirmationDelete} color="primary">
+                            No
+                        </Button>
+                        <Button id="delete-yes" onClick={this.handleCloseConfirmationDelete} color="primary" autoFocus>
+                            Yes
+                        </Button>
+                    </DialogActions>
+                </Dialog>
 
             </div>
         )

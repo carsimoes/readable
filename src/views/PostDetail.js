@@ -19,9 +19,10 @@ import UnlikeIcon from '@material-ui/icons/ThumbDown'
 import LikeIcon from '@material-ui/icons/ThumbUp'
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
-
-//TODO: https://material-ui.com/demos/snackbars/
-//import { SnackbarProvider, withSnackbar } from 'notistack';
+import Delete from '@material-ui/icons/Delete'
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 const uuidv1 = require('uuid/v1')
 
@@ -65,7 +66,8 @@ class PostDetail extends Component {
         postAuthor: '',
         postCategory: '',
         postContent: '',
-        postId: ''
+        postId: '',
+        openDialogConfirmDelete: false
     }
 
     componentWillMount() {
@@ -123,6 +125,7 @@ class PostDetail extends Component {
             commentContent: '',
             commentAuthor: ''
         });
+
     }
 
     handlePostSubmit = event => {
@@ -142,7 +145,21 @@ class PostDetail extends Component {
 
     deletePost = id => {
         this.props.dispatch(deletePost(id))
+        this.props.history.push('/')
     }
+
+    handleClickOpenConfirmation = () => {
+        this.setState({ openDialogConfirmDelete: true });
+
+    };
+
+    handleCloseConfirmationDelete = (e) => {
+        if (e.target.textContent === "Yes") {
+            this.deletePost(this.state.postId);
+        }
+
+        this.setState({ openDialogConfirmDelete: false });
+    };
 
     render() {
         const { classes } = this.props;
@@ -180,6 +197,12 @@ class PostDetail extends Component {
                                         <div onClick={() => this.submitVote(k, 'downVote')}>
                                             <IconButton aria-label="Hate this">
                                                 <UnlikeIcon />
+                                            </IconButton>
+                                        </div>
+                                        <div onClick={() => this.handleClickOpenConfirmation(this.state.postId)}
+                                            style={{ marginLeft: 0 }}>
+                                            <IconButton aria-label="Delete">
+                                                <Delete />
                                             </IconButton>
                                         </div>
                                     </Grid>
@@ -236,7 +259,7 @@ class PostDetail extends Component {
                                             <div className={classes.selectAlign}>
                                                 <Button variant="contained" type='submit' className={classes.button}>
                                                     Save
-                                                    </Button>
+                                                </Button>
                                             </div>
                                         </form>
                                     </div>
@@ -264,6 +287,7 @@ class PostDetail extends Component {
                                                 }
                                             })
                                             .map(comment =>
+
                                                 <EditComment
                                                     key={comment.id}
                                                     id={comment.id}
@@ -318,6 +342,21 @@ class PostDetail extends Component {
                             </div>
                     )
                 }
+
+                <Dialog
+                    open={this.state.openDialogConfirmDelete}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description">
+                    <DialogTitle id="alert-dialog-title">{"Delete this post?"}</DialogTitle>
+                    <DialogActions>
+                        <Button id="delete-no" onClick={this.handleCloseConfirmationDelete} color="primary">
+                            No
+                        </Button>
+                        <Button id="delete-yes" onClick={this.handleCloseConfirmationDelete} color="primary" autoFocus>
+                            Yes
+                        </Button>
+                    </DialogActions>
+                </Dialog>
 
             </div >
         )
