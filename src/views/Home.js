@@ -134,7 +134,7 @@ class Home extends Component {
 
         return (
 
-            <div className="container">
+            <div className="">
 
                 <div className="b1"></div>
                 <div className="b2" >

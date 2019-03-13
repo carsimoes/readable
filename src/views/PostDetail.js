@@ -58,6 +58,7 @@ const styles = theme => ({
 });
 
 class PostDetail extends Component {
+
     state = {
         commentAuthor: '',
         commentContent: '',
@@ -267,9 +268,13 @@ class PostDetail extends Component {
 
                                 <div style={{ width: '400', float: 'left', marginLeft: 50 }}>
                                     <h2>
-                                        Comments ({this.props.comments &&
-                                            Object.values(this.props.comments).filter(comment => comment.parentId === this.state.postId).length})
-                                        </h2>
+                                        Comments (
+                                        {this.props.comments &&
+                                            Object.values(this.props.comments)
+                                                .filter(comment => !comment.deleted)
+                                                .filter(comment => comment.parentId === this.state.postId).length}
+                                        )
+                                    </h2>
                                     {this.props.comments &&
                                         Object.values(this.props.comments)
                                             .filter(comment => !comment.deleted)
