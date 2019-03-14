@@ -1,0 +1,179 @@
+https: //codepen.io/FUGU22/pen/YxEojN
+@import url("https://fonts.googleapis.com/css?family=Saira+Semi+Condensed");
+
+body {
+    background: #39393B;
+    font-family: "Saira Semi Condensed", sans-serif;
+}
+
+.main-container {
+    position: absolute;
+    top: 180%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+}
+
+.first-container,
+.second-container {
+    cursor: pointer;
+    position: relative;
+}
+
+.first-container h1,
+.second-container h1 {
+    position: relative;
+    letter-spacing: 2px;
+    font-size: 2vw;
+}
+
+.first-container {
+    margin-bottom: 15px;
+}
+
+span {
+    display: inline-block;
+    position: relative;
+    margin-right: 5px;
+}
+
+span:after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 0;
+    top: 0;
+    left: 0;
+    transition: 0.6s;
+    z-index: -5;
+}
+
+.share:hover>h1>span:nth-child(1):after {
+    background: white;
+    width: 100%;
+    transition: 0.6s;
+    transition-delay: 100ms;
+    transform: rotate(-25deg);
+}
+
+.share:hover>h1>span:nth-child(1) {
+    color: #39393B;
+    transition-delay: 110ms;
+}
+
+.share:hover>h1>span:nth-child(2):after {
+    background: white;
+    width: 100%;
+    transition: 0.6s;
+    transition-delay: 200ms;
+    transform: rotate(-20deg);
+}
+
+.share:hover>h1>span:nth-child(2) {
+    color: #39393B;
+    transition-delay: 220ms;
+}
+
+.share:hover>h1>span:nth-child(3):after {
+    background: white;
+    width: 100%;
+    transition: 0.6s;
+    transition-delay: 300ms;
+    transform: rotate(-15deg);
+}
+
+.share:hover>h1>span:nth-child(3) {
+    color: #39393B;
+    transition-delay: 330ms;
+}
+
+.share:hover>h1>span:nth-child(4):after {
+    background: white;
+    width: 100%;
+    transition: 0.6s;
+    transition-delay: 400ms;
+    transform: rotate(-10deg);
+}
+
+.share:hover>h1>span:nth-child(4) {
+    color: #39393B;
+    transition-delay: 440ms;
+}
+
+.share:hover>h1>span:nth-child(5):after {
+    background: white;
+    width: 100%;
+    transition: 0.6s;
+    transition-delay: 500ms;
+    transform: rotate(-5deg);
+}
+
+.share:hover>h1>span:nth-child(5) {
+    color: #39393B;
+    transition-delay: 550ms;
+}
+
+.share:hover>h1>span:nth-child(6):after {
+    background: white;
+    width: 100%;
+    transition: 0.6s;
+    transition-delay: 600ms;
+    transform: rotate(0deg);
+}
+
+.share:hover>h1>span:nth-child(6) {
+    color: #39393B;
+    transition-delay: 660ms;
+}
+
+.share:hover>h1>span:nth-child(7):after {
+    background: white;
+    width: 100%;
+    transition: 0.6s;
+    transition-delay: 700ms;
+    transform: rotate(5deg);
+}
+
+.share:hover>h1>span:nth-child(7) {
+    color: #39393B;
+    transition-delay: 770ms;
+}
+
+.share:hover>h1>span:nth-child(8):after {
+    background: white;
+    width: 100%;
+    transition: 0.6s;
+    transition-delay: 800ms;
+    transform: rotate(10deg);
+}
+
+.share:hover>h1>span:nth-child(8) {
+    color: #39393B;
+    transition-delay: 880ms;
+}
+
+.share:hover>h1>span:nth-child(9):after {
+    background: white;
+    width: 100%;
+    transition: 0.6s;
+    transition-delay: 900ms;
+    transform: rotate(15deg);
+}
+
+.share:hover>h1>span:nth-child(9) {
+    color: #39393B;
+    transition-delay: 990ms;
+}
+
+.share:hover>h1>span:nth-child(10):after {
+    background: white;
+    width: 100%;
+    transition: 0.6s;
+    transition-delay: 1000ms;
+    transform: rotate(20deg);
+}
+
+.share:hover>h1>span:nth-child(10) {
+    color: #39393B;
+    transition-delay: 1100ms;
+}

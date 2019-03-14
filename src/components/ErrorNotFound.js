@@ -1,17 +1,24 @@
 import React, { PureComponent } from 'react';
 
-export default class ErrorNotFound extends PureComponent {
+import Typography from '@material-ui/core/Typography';
+
+import '../css/404.css'
+
+class ErrorNotFound extends PureComponent {
 
     render() {
         return (
-            // <div style={{ width: '100%', height: '100%', float: 'left', position: 'fixed', background: 'white' }}>
-            <div>
-                <h1 className="notFoundTitle">Oops! That page can’t be found.</h1>
-                <p className="notFoundDesc">
-                    It looks like nothing was found at this location.
-                    Maybe try one of the links in the menu or press back to go to the previous page.
-                </p>
+            <div id="notfound">
+                <div class="notfound">
+                    <div class="notfound-404">
+                        <h1>Oops!</h1>
+                    </div>
+                    <Typography variant="h2" gutterBottom style={{ marginTop: '40px' }}>404 - Page not found</Typography>
+                    <Typography variant="p" gutterBottom>The page you are looking for might have been removed had its name changed or is temporarily unavailable.</Typography>
+                </div>
             </div>
         );
     }
 }
+
+export default (ErrorNotFound);

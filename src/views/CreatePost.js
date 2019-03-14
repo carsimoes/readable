@@ -15,7 +15,6 @@ import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
 
-
 const uuidv1 = require('uuid/v1')
 
 const styles = theme => ({

@@ -7,6 +7,7 @@ import compose from 'recompose/compose'
 //Actions
 import { fetchPosts, vote, deletePost } from '../actions/Post/actions'
 import { setSorting } from '../actions/Sort/actions'
+import { categories } from '../actions/Category/actions'
 
 //Material-ui
 import Card from '@material-ui/core/Card';
@@ -31,6 +32,9 @@ import Button from '@material-ui/core/Button';
 
 //Components
 import NavCategories from '../components/NavCategories'
+import NotFound from '../components/ErrorNotFound'
+
+import '../css/quoteBar.css'
 
 const uuidv1 = require('uuid/v1')
 
@@ -97,6 +101,7 @@ class Home extends Component {
 
     componentWillMount() {
         this.props.fetchData('BY_SCORE_HIGHEST')
+        this.props.fetchDataCategories()
     }
 
     submitVote = (id, voteType) => {
@@ -132,11 +137,35 @@ class Home extends Component {
             )
         }
 
+        const pathname = this.props.location.pathname.replace('/', '')
+        if (pathname !== '' && this.props.categories) {
+            const categoryFound =
+                (this.props.categories.find(key => key.name === pathname.toLowerCase()) !== undefined)
+
+            if (!categoryFound) {
+                return <NotFound />
+            }
+        }
+
         return (
 
-            <div className="">
+            <div className="container">
 
-                <div className="b1"></div>
+                <div className="b1">
+                    <div class="main-container">
+                        <div class="first-container share">
+                            <h1>
+                                <span id="one">W</span>
+                                <span>h</span><span>e</span><span>n</span> <span>W</span><span>e</span> <span>T</span><span>a</span>
+                                <span>l</span>
+                                <span>k</span>
+                            </h1>
+                        </div>
+                        <div class="second-container share">
+                            <h1><span>W</span><span>e</span> <span>M</span><span>o</span><span>v</span><span>e</span></h1>
+                        </div>
+                    </div>
+                </div>
                 <div className="b2" >
                     {posts &&
                         Object.values(posts)
@@ -251,13 +280,15 @@ class Home extends Component {
 
 const mapStateToProps = state => ({
     posts: state.postsById,
-    sortBy: state.setSorting ? state.setSorting.sort : ''
+    sortBy: state.setSorting ? state.setSorting.sort : '',
+    categories: state.receiveCategories
 })
 
 const mapDispatchToProps = dispatch => ({
     dispatch,
     fetchData: sortCriteria =>
-        dispatch(fetchPosts()).then(() => dispatch(setSorting(sortCriteria)))
+        dispatch(fetchPosts()).then(() => dispatch(setSorting(sortCriteria))),
+    fetchDataCategories: () => dispatch(categories())
 })
 
 export default compose(

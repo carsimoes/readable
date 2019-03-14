@@ -6,3 +6,11 @@ export const get = () =>
     })
     .then(data => data.json())
     .then(data => data.categories)
+
+
+
+export const categoryExists = (category) => {
+    var r = Object.keys(get()).find(key => get()[key] === category.toLowerCase()) !== undefined
+    debugger
+    return r;
+}

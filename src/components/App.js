@@ -1,38 +1,41 @@
 import React, { Component, Fragment } from 'react'
-import { Route, BrowserRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import LoadingBar from 'react-redux-loading'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-//Views
+//Components
+import NotFound from '../components/ErrorNotFound'
 import Home from '../views/Home'
+import Bar from '../components/Bar'
 import PostDetail from '../views/PostDetail'
 import CreatePost from '../views/CreatePost'
 import TrendingNow from '../views/TrendingNow'
 
-//Components
-import Bar from '../components/Bar'
+//Css
+import '../css/index.css'
 
 class App extends Component {
 
   render() {
     return (
-      <BrowserRouter >
+      <Router>
         <Fragment>
-          <LoadingBar />
-          <div className='container' >
+
+          <div className='container'>
             <Bar />
-            {this.props.loading === true ? null : <div>
-              <Route path='/' exact component={Home} />
-              <Route exact path='/:category' component={Home} />
-              <Route path='/create-post' component={CreatePost} />
-              <Route path='/:category/:post_id' component={PostDetail} />
-              <Route path='/trending-now' component={TrendingNow} />
-            </div>}
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/Home" exact component={Home} />
+              <Route path='/create-post' exact component={CreatePost} />
+              <Route path='/:category/:post_id' exact component={PostDetail} />
+              <Route path='/trending-now' exact component={TrendingNow} />
+              <Route path='/:category' exact component={Home} />
+              <Route component={NotFound} />
+            </Switch>
           </div>
         </Fragment>
-      </BrowserRouter>
-    )
+      </Router>
+    );
   }
 }
 
-export default connect()(App)
+export default connect(null, null)(App)
