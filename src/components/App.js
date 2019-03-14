@@ -6,6 +6,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import NotFound from '../components/ErrorNotFound'
 import Home from '../views/Home'
 import Bar from '../components/Bar'
+import Footer from '../components/Footer'
+
+//Views
 import PostDetail from '../views/PostDetail'
 import CreatePost from '../views/CreatePost'
 import TrendingNow from '../views/TrendingNow'
@@ -32,6 +35,7 @@ class App extends Component {
               <Route component={NotFound} />
             </Switch>
           </div>
+          <Footer />
         </Fragment>
       </Router>
     );

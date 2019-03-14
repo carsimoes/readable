@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Saira+Semi+Condensed");
 
-body {
+/* body {
     background: #39393B;
     font-family: "Saira Semi Condensed", sans-serif;
     overflow: auto;
-}
+} */
 
 .main-container {
     position: absolute;

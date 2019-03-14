@@ -40,7 +40,7 @@ const uuidv1 = require('uuid/v1')
 
 const styles = theme => ({
     card: {
-        maxWidth: 400,
+        maxWidth: 425,
     },
     media: {
         height: 0,
@@ -171,7 +171,7 @@ class Home extends Component {
                                 }
                             })
                             .map(post =>
-                                <div className='post' key={uuidv1()}>
+                                <div className='card' key={uuidv1()}>
                                     <Card className={classes.card}>
                                         <CardHeader
                                             avatar={
