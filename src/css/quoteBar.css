@@ -1,9 +1,9 @@
-https: //codepen.io/FUGU22/pen/YxEojN
 @import url("https://fonts.googleapis.com/css?family=Saira+Semi+Condensed");
 
 body {
     background: #39393B;
     font-family: "Saira Semi Condensed", sans-serif;
+    overflow: auto;
 }
 
 .main-container {
@@ -24,7 +24,7 @@ body {
 .second-container h1 {
     position: relative;
     letter-spacing: 2px;
-    font-size: 2vw;
+    font-size: 1.5vw;
 }
 
 .first-container {

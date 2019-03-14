@@ -22,7 +22,11 @@ const styles = {
         marginLeft: 100,
     },
     AppBarNew: {
-        backgroundColor: 'rgba(74, 78, 73, 0.87)'
+        backgroundColor: 'rgba(74, 78, 73, 0.87)',
+        height: '135px',
+    },
+    AppBarNewToolBar: {
+        minHeight: '40px'
     },
     AppBarNewTitle: {
         color: 'white !important'
@@ -31,6 +35,7 @@ const styles = {
 
 //https: //codepen.io/FUGU22/pen/YxEojN
 //cards: https://codepen.io/ariona/pen/LEEadb/
+//https://freefrontend.com/css-text-effects/
 
 function Bar(props) {
     const { classes } = props;
@@ -38,9 +43,21 @@ function Bar(props) {
     return (
         <div className={classes.root}>
             <AppBar position="static" className={classes.AppBarNew}>
-                <Toolbar>
-
-                    <Typography variant="h4" >
+                <Toolbar className={classes.AppBarNewToolBar}>
+                    <div class="main-container">
+                        <div class="first-container share">
+                            <h1>
+                                <span id="one">W</span>
+                                <span>h</span><span>e</span><span>n</span> <span>W</span><span>e</span> <span>T</span><span>a</span>
+                                <span>l</span>
+                                <span>k</span>
+                            </h1>
+                        </div>
+                        <div class="second-container share">
+                            <h1><span>W</span><span>e</span> <span>M</span><span>o</span><span>v</span><span>e</span></h1>
+                        </div>
+                    </div>
+                    {/* <Typography variant="h4" >
                         <Link to='/' className={classes.AppBarNewTitle}>Readable</Link>
                     </Typography>
 
@@ -50,7 +67,7 @@ function Bar(props) {
 
                     <Typography className={classes.newPost}>
                         <TrendingNowButton></TrendingNowButton>
-                    </Typography>
+                    </Typography> */}
 
 
                 </Toolbar>

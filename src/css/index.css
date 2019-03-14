@@ -16,6 +16,7 @@ a {
   padding: 10px;
   position: relative;
   min-height: 0px;
+  overflow: auto;
 }
 
 .box-categories {
