@@ -20,8 +20,8 @@ const styles = theme => ({
 });
 
 const pieOptions = {
-    title: "",
-    pieHole: 0.6,
+    title: "Posts",
+    pieHole: 1.9,
     slices: [
         {
             color: "#2BB673"
@@ -49,9 +49,10 @@ const pieOptions = {
     },
     chartArea: {
         left: 0,
-        top: 0,
+        top: 10,
+
         width: "100%",
-        height: "80%"
+        height: "75%"
     },
     fontName: "Roboto"
 };
@@ -111,18 +112,16 @@ class TrendingNow extends Component {
 
             <div style={{
                 width: '100%',
-                height: '80%',
+                height: '100%',
                 float: 'left',
-                position: 'fixed',
-                background: 'white',
-                overflow: 'auto'
+
             }}>
 
                 <div className="container">
                     <div className="b1-trends">
                     </div>
                     <div className="b2-trends">
-                        <Typography variant="h6" gutterBottom>Posts Trends for you</Typography>
+                        <Typography variant="h6" gutterBottom className='chartBoxTitle'>Posts Trends for you</Typography>
                         <Chart
                             chartType="PieChart"
                             data={rowsChartPosts}
@@ -131,6 +130,7 @@ class TrendingNow extends Component {
                             width={"100%"}
                             height={"350px"}
                             legend_toggle
+                            className='chartBox'
                         />
                     </div>
                     <div className="b1-trends">
@@ -138,7 +138,7 @@ class TrendingNow extends Component {
 
                     </div>
                     <div className="b2-trends">
-                        <Typography variant="h6" gutterBottom>Comments Trends for you</Typography>
+                        <Typography variant="h6" gutterBottom className='chartBoxTitle'>Comments Trends for you</Typography>
                         <div className="b2-trends-chart2">
                             <Chart
                                 chartType="PieChart"

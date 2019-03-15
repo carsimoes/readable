@@ -8,8 +8,8 @@
 
 .main-container {
     position: absolute;
-    top: 180%;
-    left: 20%;
+    top: 40%;
+    left: 40%;
     transform: translate(-50%, -50%);
     color: #ffffff;
 }

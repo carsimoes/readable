@@ -166,12 +166,7 @@ class PostDetail extends Component {
         const { classes } = this.props;
 
         return (
-            <div style={{
-                position: 'fixed',
-                height: '80%',
-                width: '100%',
-                overflow: 'auto'
-            }}>
+            <div style={{ marginBottom: '1000px' }}>
 
                 {this.props.post &&
                     Object.keys(this.props.post).map(

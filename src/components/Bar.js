@@ -5,11 +5,10 @@ import { Link } from 'react-router-dom'
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-
-//Components
-import NewPost from '../components/NewPost'
-import TrendingNowButton from '../components/TrendingNowButton'
+import IconButton from '@material-ui/core/IconButton';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 import '../css/quoteBar.css'
 
@@ -23,58 +22,87 @@ const styles = {
     },
     AppBarNew: {
         backgroundColor: 'rgba(74, 78, 73, 0.87)',
-        height: '135px',
+        minHeight: '35px',
     },
-    AppBarNewToolBar: {
-        minHeight: '40px'
-    },
+
     AppBarNewTitle: {
         color: 'white !important'
     }
 };
 
-//https: //codepen.io/FUGU22/pen/YxEojN
-//cards: https://codepen.io/ariona/pen/LEEadb/
-//https://freefrontend.com/css-text-effects/
+const ITEM_HEIGHT = 48;
 
-function Bar(props) {
-    const { classes } = props;
+class Bar extends React.Component {
+    state = {
+        anchorEl: null,
+    };
 
-    return (
-        <div className={classes.root}>
-            <AppBar position="static" className={classes.AppBarNew}>
-                <Toolbar className={classes.AppBarNewToolBar}>
-                    <div class="main-container">
-                        <div class="first-container share">
-                            <h1>
-                                <span id="one">W</span>
-                                <span>h</span><span>e</span><span>n</span> <span>W</span><span>e</span> <span>T</span><span>a</span>
-                                <span>l</span>
-                                <span>k</span>
-                            </h1>
+    handleClick = event => {
+        this.setState({ anchorEl: event.currentTarget });
+    };
+
+    handleClose = () => {
+        this.setState({ anchorEl: null });
+    };
+
+    render() {
+        const { classes } = this.props;
+        const { anchorEl } = this.state;
+        const open = Boolean(anchorEl);
+
+        return (
+            <div className={classes.root}>
+                <AppBar position="static" className={classes.AppBarNew}>
+                    <Toolbar className='AppBarNewToolBar'>
+
+                        <div>
+                            <IconButton
+                                aria-label="More"
+                                aria-owns={open ? 'long-menu' : undefined}
+                                aria-haspopup="true"
+                                onClick={this.handleClick}>
+                                <MoreVertIcon />
+                            </IconButton>
+                            <Menu
+                                id="long-menu"
+                                anchorEl={anchorEl}
+                                open={open}
+                                onClose={this.handleClose}
+                                PaperProps={{
+                                    style: {
+                                        maxHeight: ITEM_HEIGHT * 4.5,
+                                        width: 200,
+                                    },
+                                }}>
+
+                                <MenuItem key='home' onClick={this.handleClose}>
+                                    <Link to='/'>
+                                        Home
+                                        </Link>
+                                </MenuItem>
+
+                                <Link to='/create-post'>
+                                    <MenuItem key='createPost' onClick={this.handleClose}>
+                                        Create a new post
+                                    </MenuItem>
+                                </Link>
+                                <Link to='/trending-now'>
+                                    <MenuItem key='createPost' onClick={this.handleClose}>
+                                        Trending Now
+                                    </MenuItem>
+                                </Link>
+
+                            </Menu>
                         </div>
-                        <div class="second-container share">
-                            <h1><span>W</span><span>e</span> <span>M</span><span>o</span><span>v</span><span>e</span></h1>
-                        </div>
-                    </div>
-                    {/* <Typography variant="h4" >
-                        <Link to='/' className={classes.AppBarNewTitle}>Readable</Link>
-                    </Typography>
-
-                    <Typography className={classes.newPost}>
-                        <NewPost></NewPost>
-                    </Typography>
-
-                    <Typography className={classes.newPost}>
-                        <TrendingNowButton></TrendingNowButton>
-                    </Typography> */}
-
-
-                </Toolbar>
-            </AppBar>
-            <br />
-        </div>
-    );
+                    </Toolbar>
+                </AppBar>
+                <br />
+            </div>
+        );
+    }
 }
+
+
+
 
 export default withStyles(styles)(Bar);
