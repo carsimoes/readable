@@ -8,6 +8,7 @@ import { fetchComments, addComment, setCommentSorting } from '../actions/Comment
 
 //Components
 import EditComment from '../components/EditComment'
+import NotFound from '../components/ErrorNotFound'
 
 //Material ui
 import { withStyles } from '@material-ui/core/styles'
@@ -80,6 +81,7 @@ class PostDetail extends Component {
                     this.props.location.state.postEditorVisible &&
                     this.showPostEditor()
             )
+
     }
 
     showPostEditor() {
@@ -164,6 +166,14 @@ class PostDetail extends Component {
 
     render() {
         const { classes } = this.props;
+
+        if ((Object.keys(this.props.post)[0] === 'undefined' || Object.keys(this.props.post) === undefined)) {
+            if (Object.keys(this.props.post).length > 1) {
+                //ok
+            } else {
+                return <NotFound />
+            }
+        }
 
         return (
             <div style={{ marginBottom: '1000px' }}>
