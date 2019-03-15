@@ -89,8 +89,6 @@ class CreatePost extends Component {
         return (
             <div style={{ width: '15%', height: '100%', float: 'left', position: 'fixed' }}>
 
-                {/* <div style={{ width: '100%', height: '100%', float: 'left', position: 'fixed', background: 'white' }}> */}
-                {/* <div style={{ width: '15%', float: 'left', marginLeft: 500, position: 'fixed' }}> */}
                 < FormControl className={classes.formControl} >
                     <Typography variant="h6" gutterBottom>Compose new Post</Typography>
                     <form onSubmit={this.handleSubmit} className={classes.root}>
