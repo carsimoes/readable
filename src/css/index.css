@@ -51,7 +51,8 @@ a {
   position: relative;
   margin: 5px;
   float: left;
-  width: calc(33% - 10px);
+  margin-right: 20px;
+  /* width: calc(33% - 10px); */
   min-height: 10px;
   margin-top: 12px;
 }
@@ -171,6 +172,7 @@ li {
   height: 233px;
   transition: .3s ease;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  width: 400px;
 }
 
 .card:hover {
